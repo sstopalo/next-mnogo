@@ -1,0 +1,11 @@
+.links {
+    text-decoration: none;
+
+    &_blue {
+        color: $blue-link;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

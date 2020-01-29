@@ -1,13 +1,10 @@
-
-export default {
+const StyleLintPlugin = require('stylelint-webpack-plugin');
+export default  {
   mode: 'universal',
   /*
   ** Headers of the page
   */
   head: {
-    htmlAttrs: {
-        lang: 'ru',
-    },
     title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
@@ -26,8 +23,11 @@ export default {
   ** Global CSS
   */
   css: [
-      '~/assets/scss/main',
+      '~/assets/styles/main.scss'
   ],
+  styleResources: {
+      scss: '~/assets/styles/shared/*.scss'
+  },
   /*
   ** Plugins to load before mounting the App
   */
@@ -42,6 +42,7 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+      '@nuxtjs/style-resources'
   ],
   /*
   ** Build configuration
@@ -50,7 +51,23 @@ export default {
     /*
     ** You can extend webpack config here
     */
-    extend (config, ctx) {
+    extend(config, ctx) {
+        if (ctx.isDev && ctx.isClient) {
+            config.module.rules.push({
+                enforce: 'pre',
+                test: /\.(js|vue)$/,
+                loader: 'eslint-loader',
+                exclude: /(node_modules)/
+            });
+
+            config.plugins.push(
+                new StyleLintPlugin({
+                    files: ['**/*.scss', '**/*.vue'],
+                    failOnError: false,
+                    quiet: false
+                })
+            );
+        }
     }
   }
 }

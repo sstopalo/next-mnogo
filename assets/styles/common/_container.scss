@@ -1,0 +1,13 @@
+.container {
+    margin: 0 auto;
+    box-sizing: content-box;
+
+    &_desk {
+        max-width: 1280px;
+        padding: 0 40px;
+
+        @include _500 {
+            padding: 0 24px;
+        }
+    }
+}

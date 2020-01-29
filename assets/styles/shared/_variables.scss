@@ -1,0 +1,41 @@
+/* Breakpoints: From xs to sm, from sm to md, from md to lg, after that simple desktop */
+$breakpoints: (
+    xs: 0,
+    sm: 500px,
+    md: 768px,
+    lg: 1023px
+);
+
+/* Colors */
+$default: #617884;
+$white: #fff;
+$black: #000;
+$brand: #531c5a;
+$blue-link: #15c;
+$pink: #fa3264;
+$pink-dark: #e71348;
+$lime: #d2dc00;
+$lime-dark: #98c200;
+$violet: #782882;
+$violet-light: #f8f4f8;
+$green: #4fd283;
+$green-light: #dcf6e6;
+$yellow: #fee94e;
+$yellow-light: #fffbdc;
+$grey-xs: #f6f8f9;
+$grey-s: #d3dbde;
+$grey-l: #98aab3;
+$grey-xl: #617884;
+$grey-dark: #2b363b;
+
+/* Font */
+$font-family: 'Montserrat', sans-serif;
+$font-size: 16px;
+
+/* Grid */
+$header-h: 80px;
+$mobile-header-h: 50px;
+$footer-h: 64px;
+
+/* Spacing */
+$mobile-padding: 16px;
